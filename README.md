@@ -30,4 +30,4 @@ Then, make sure you have a Wifi connection, after which you can run the script l
 ```
 ./rpi-config.sh
 ```
-Now your computer will restart and all changes will apply.
+Now the raspberry is correctly configured.

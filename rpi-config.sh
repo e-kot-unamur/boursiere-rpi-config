@@ -9,7 +9,7 @@ systemctl enable ssh
 systemctl start ssh
 
 # sleep mode desactivation
-systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+xset s off
 
 # creates shortcuts to boursiere website on desktop 
 cat >/home/$user/Desktop/boursiere_website.desktop <<EOF
@@ -23,6 +23,3 @@ EOF
 
 # installs firefox
 apt-get install -y firefox-esr firefox-esr-l10n-fr
-
-# reboot to apply changes
-shutdown -r now
