@@ -9,7 +9,15 @@ systemctl enable ssh
 systemctl start ssh
 
 # sleep mode desactivation
-xset s off
+xset s off && xset -dpms
+
+# sleep mode desactivation at each boot
+cat >/root/.screen-blanking.sh <<EOF
+#!/bin/bash
+# disable screen blanking
+xset s off && xset -dpms
+EOF
+crontab -e @reboot /root/.screen-blanking.sh
 
 # creates shortcuts to boursiere website on desktop 
 cat >/home/$user/Desktop/boursiere_website.desktop <<EOF
