@@ -17,7 +17,11 @@ cat >/root/.screen-blanking.sh <<EOF
 # disable screen blanking
 xset s off && xset -dpms
 EOF
-crontab -e @reboot /root/.screen-blanking.sh
+crontab -l > crontab_new
+echo "@reboot /root/.screen-blanking.sh" >> crontab_new
+crontab crontab_new
+rm crontab_new
+chmod +x /root/.screen-blanking.sh
 
 # creates shortcuts to boursiere website on desktop 
 cat >/home/$user/Desktop/boursiere_website.desktop <<EOF

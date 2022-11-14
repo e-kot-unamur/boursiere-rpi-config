@@ -1,16 +1,15 @@
 # boursiere-rpi-config
 ## Installation
 To install the script, you need to do this command in the folder where you want to place it.
-Be careful, I recommend you to install it as root, so you don't have to change the file permissions afterwards.
 ```sh
 sudo -i # If you decide to install it as root
 cd /home/pi # In my example here, I install it in the user's home pi but do as you wish
 git clone https://github.com/e-kot-unamur/boursiere-rpi-config.git
 ```
-If you didn't install it as root, you have to do this right after the installation:
+Then, you have to do this right after the installation:
 ```sh
 cd ./boursiere-rpi-config
-chmod o+x ./rpi-config.sh
+chmod +x ./rpi-config.sh
 ```
 ## Use
 First of all, if you are not under root, do it:
