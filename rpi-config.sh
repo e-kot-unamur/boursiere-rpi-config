@@ -12,7 +12,9 @@ systemctl start ssh
 xset s off && xset -dpms
 
 # sleep mode desactivation at each boot
-grep -q "xset s off && xset -dpms" /etc/rc.local && sed -i "/^[a-z].*/s/exit 0/xset s off \&\& xset -dpms\nexit 0/" /etc/rc.local
+if ! grep -q "xset s off && xset -dpms" /etc/rc.local ; then
+    sed -i "/^[a-z].*/s/exit 0/xset s off \&\& xset -dpms\nexit 0/" /etc/rc.local
+fi
 
 # creates shortcuts to boursiere website on desktop 
 cat >/home/$user/Desktop/boursiere_website.desktop <<EOF
