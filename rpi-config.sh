@@ -12,17 +12,7 @@ systemctl start ssh
 xset s off && xset -dpms
 
 # sleep mode desactivation at each boot
-cat >/root/.screen-blanking.sh <<EOF
-#!/bin/bash
-# disable screen blanking
-xset s off && xset -dpms
-EOF
-crontab -l > crontab_new
-echo "@reboot bash /root/.screen-blanking.sh" >> crontab_new
-crontab crontab_new
-rm crontab_new
-chmod +x /root/.screen-blanking.sh
-systemctl enable cron
+sed -i "/^[a-z].*/s/exit 0/xset s off \&\& xset -dpms\nexit 0/" /etc/rc.local
 
 # creates shortcuts to boursiere website on desktop 
 cat >/home/$user/Desktop/boursiere_website.desktop <<EOF
