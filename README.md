@@ -6,11 +6,6 @@ sudo -i # If you decide to install it as root
 cd /home/pi # In my example here, I install it in the user's home pi but do as you wish
 git clone https://github.com/e-kot-unamur/boursiere-rpi-config.git
 ```
-Then, you have to do this right after the installation:
-```sh
-cd ./boursiere-rpi-config
-chmod +x ./rpi-config.sh
-```
 ## Use
 First of all, if you are not under root, do it:
 ```sh
