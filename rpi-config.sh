@@ -39,8 +39,8 @@ while getopts ":hu:" opt; do
 done
 
 # verify that the user exists
-if ! id $user 1> /dev/null 2>&1 ; then
-    echo "User $user does not exist. You have to specify an existing user name (the name of your personal user on the raspberry, configured at its first start) using the 'u' parameter."
+if ! id $user 1> /dev/null 2>&1 || [ "$user" = "root" ]; then
+    echo "User $user does not exist or you gave root. You have to specify an existing user name (the name of your personal user on the raspberry, configured at its first start) using the 'u' parameter."
     echo "Example: $0 -u pi"
     exit 1
 fi
