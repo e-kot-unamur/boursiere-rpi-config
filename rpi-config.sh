@@ -36,4 +36,5 @@ Exec=firefox-esr https://boursiere.e-kot.be/order.html
 Icon=/usr/share/firefox-esr/browser/chrome/icons/default/default16.png
 EOF
 
+# Restart the raspberry to apply changes
 shutdown -r now
