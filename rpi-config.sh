@@ -5,16 +5,10 @@
 user="pi" # name of your user on the raspberry (probably pi)
 
 # ssh activation
-systemctl enable ssh
-systemctl start ssh
+raspi-config nonint do_ssh 1
 
 # sleep mode desactivation
-xset s off && xset -dpms
-
-# sleep mode desactivation at each boot
-if ! grep -q "xset s off && xset -dpms" /etc/rc.local ; then
-    sed -i "/^[a-z].*/s/exit 0/xset s off \&\& xset -dpms\nexit 0/" /etc/rc.local
-fi
+raspi-config nonint do_blanking 1
 
 # creates shortcuts to boursiere website on desktop 
 cat >/home/$user/Desktop/boursiere_website.desktop <<EOF
