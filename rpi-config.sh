@@ -1,8 +1,49 @@
 #!/bin/bash
 # configuration of a raspberry at his first start (needs to be run as root)
 
-# variable to change according to your needs
+# default user name
 user="pi" # name of your user on the raspberry (probably pi)
+
+# help function to display a message
+Help()
+{
+    echo "Script to configure a raspberry pi for the 'boursiere' evening of the Cercle Info."
+    echo
+    echo "Syntax: $0 ([-u user_name|h])"
+    echo
+    echo "options:"
+    echo "  -u user_name     Set the user name (User that you use as a personal user, which you configured at the first startup). Default : $user"
+    echo "  -h               Print this Help."
+    echo
+}
+
+# parse options (to get the user name)
+while getopts ":hu:" opt; do
+    case $opt in
+        h)
+            Help
+            exit 0
+            ;;
+        u)
+            user=$OPTARG
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            exit 1
+            ;;
+        :)
+            echo "Option -$OPTARG requires an argument." >&2
+            exit 1
+            ;;
+    esac
+done
+
+# verify that the user exists
+if ! id $user 1> /dev/null 2>&1 ; then
+    echo "User $user does not exist. You have to specify an existing user name (the name of your personal user on the raspberry, configured at its first start) using the 'u' parameter."
+    echo "Example: $0 -u pi"
+    exit 1
+fi
 
 # ssh activation
 raspi-config nonint do_ssh 0 && echo "ssh activated"
@@ -36,5 +77,5 @@ Exec=firefox-esr https://boursiere.e-kot.be/order.html
 Icon=/usr/share/firefox-esr/browser/chrome/icons/default/default16.png
 EOF
 
-# Restart the raspberry to apply changes
+# restart the raspberry to apply changes
 shutdown -r now
