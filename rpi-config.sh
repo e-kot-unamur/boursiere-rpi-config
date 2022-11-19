@@ -7,7 +7,7 @@ user="pi" # name of your user on the raspberry (probably pi)
 # ssh activation
 raspi-config nonint do_ssh 0 && echo "ssh activated"
 
-# sleep mode desactivation
+# sleep mode deactivation
 raspi-config nonint do_blanking 1 && echo "sleep mode desactivated"
 
 # installs firefox
