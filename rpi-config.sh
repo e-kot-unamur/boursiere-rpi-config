@@ -52,7 +52,7 @@ raspi-config nonint do_ssh 0 && echo "ssh activated"
 raspi-config nonint do_blanking 1 && echo "sleep mode desactivated"
 
 # installs firefox
-apt-get install -y firefox-esr firefox-esr-l10n-fr
+apt-get install -y firefox-esr firefox-esr-l10n-fr &&
 
 # creates shortcuts to boursiere website on desktop 
 cat >/home/$user/Desktop/prices_FS.desktop <<EOF && echo "shortcuts to boursiere website (prices) created"
