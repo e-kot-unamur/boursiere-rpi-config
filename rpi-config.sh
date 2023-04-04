@@ -59,10 +59,21 @@ cat >/home/$user/Desktop/prices_FS.desktop <<EOF && echo "shortcuts to boursiere
 [Desktop Entry]
 Encoding=UTF-8
 Version=1.0
-Name=Prices FS
+Name=Prices FS (bar 1)
 Type=Application
 Terminal=False
-Exec=firefox-esr https://boursiere.e-kot.be/ --kiosk
+Exec=firefox-esr https://boursiere.e-kot.be/index.html#1 --kiosk
+Icon=/usr/share/firefox-esr/browser/chrome/icons/default/default16.png
+EOF
+
+cat >/home/$user/Desktop/prices_FS.desktop <<EOF && echo "shortcuts to boursiere website (prices) created"
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=Prices FS (bar 2)
+Type=Application
+Terminal=False
+Exec=firefox-esr https://boursiere.e-kot.be/index.html#2 --kiosk
 Icon=/usr/share/firefox-esr/browser/chrome/icons/default/default16.png
 EOF
 
