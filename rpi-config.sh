@@ -55,7 +55,7 @@ raspi-config nonint do_blanking 1 && echo "sleep mode desactivated"
 apt-get install -y firefox-esr firefox-esr-l10n-fr &&
 
 # creates shortcuts to boursiere website on desktop 
-cat >/home/$user/Desktop/prices_FS.desktop <<EOF && echo "shortcuts to boursiere website (prices) created"
+cat >/home/$user/Desktop/prices_FS.desktop <<EOF && echo "shortcuts to boursiere website (prices 1) created"
 [Desktop Entry]
 Encoding=UTF-8
 Version=1.0
@@ -66,7 +66,7 @@ Exec=firefox-esr https://boursiere.e-kot.be/index.html#1 --kiosk
 Icon=/usr/share/firefox-esr/browser/chrome/icons/default/default16.png
 EOF
 
-cat >/home/$user/Desktop/prices_FS.desktop <<EOF && echo "shortcuts to boursiere website (prices) created"
+cat >/home/$user/Desktop/prices_FS_2.desktop <<EOF && echo "shortcuts to boursiere website (prices 2) created"
 [Desktop Entry]
 Encoding=UTF-8
 Version=1.0
