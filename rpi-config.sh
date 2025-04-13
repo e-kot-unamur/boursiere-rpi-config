@@ -77,14 +77,25 @@ Exec=firefox-esr https://boursiere.e-kot.be/index.html#2 --kiosk
 Icon=/usr/share/firefox-esr/browser/chrome/icons/default/default16.png
 EOF
 
-cat >/home/$user/Desktop/order.desktop <<EOF && echo "shortcuts to boursiere website (order) created"
+cat >/home/$user/Desktop/order_1.desktop <<EOF && echo "shortcuts to boursiere website (order 1) created"
 [Desktop Entry]
 Encoding=UTF-8
 Version=1.0
-Name=Order
+Name=Order (bar 1)
 Type=Application
 Terminal=False
-Exec=firefox-esr https://boursiere.e-kot.be/order.html
+Exec=firefox-esr https://boursiere.e-kot.be/order.html#1 --kiosk
+Icon=/usr/share/firefox-esr/browser/chrome/icons/default/default16.png
+EOF
+
+cat >/home/$user/Desktop/order_2.desktop <<EOF && echo "shortcuts to boursiere website (order 2) created"
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=Order (bar 2)
+Type=Application
+Terminal=False
+Exec=firefox-esr https://boursiere.e-kot.be/order.html#2 --kiosk
 Icon=/usr/share/firefox-esr/browser/chrome/icons/default/default16.png
 EOF
 
